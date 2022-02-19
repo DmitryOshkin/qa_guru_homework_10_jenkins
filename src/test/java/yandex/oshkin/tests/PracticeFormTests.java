@@ -138,7 +138,7 @@ public class PracticeFormTests extends TestBase {
                     state, city);
         });
     }
-
+//Тест специально сломан для проверки отображения в отчете
     @Test
     @Tag("randomValues")
     @DisplayName("Заполнение Student Registration Form с использованием и аннотаций и лиссенера для отчета")
