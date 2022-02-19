@@ -51,6 +51,9 @@ dependencies {
 
     //allure
     testImplementation("io.qameta.allure:allure-selenide:$allureVersion")
+
+    //owner
+    testImplementation("org.aeonbits.owner:owner:1.0.12")
 }
 
 tasks.withType(Test) {

@@ -7,12 +7,15 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import yandex.oshkin.config.Credentials;
 import yandex.oshkin.helpers.Attach;
 import yandex.oshkin.pages.RegistrationPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static java.lang.String.format;
 
 public class TestBase {
+
 
     @BeforeAll
     static void beforeAll() {
@@ -24,10 +27,10 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browserVersion", "91");
         Configuration.browserSize = System.getProperty("browserSize", "1024x768");
 
-        String remoteUrl = System.getProperty("remoteUrl");
-        String user = System.getProperty("user");
-        String password = System.getProperty("password");
-        Configuration.remote = "https://" + user + ":" + password + "@" + remoteUrl;
+        String remoteUrl = System.getProperty("remoteUrl"); //Получаем значение из параметров Jenkins
+        String user = Credentials.config.user();
+        String password = Credentials.config.password();
+        Configuration.remote = format("https://%s:%s@%s", user, password, remoteUrl);
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
