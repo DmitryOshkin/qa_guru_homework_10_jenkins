@@ -107,13 +107,13 @@ public class RegistrationPage {
 
     @Step("Выбираем штат")
     public RegistrationPage selectState(String value) {
-        stateSelect.setValue(value).pressEnter();
+        stateSelect.scrollTo().setValue(value).pressEnter();
         return this;
     }
 
     @Step("Выбираем город")
     public RegistrationPage selectCity(String value) {
-        citySelect.setValue(value).pressEnter();
+        citySelect.scrollTo().setValue(value).pressEnter();
         return this;
     }
 
